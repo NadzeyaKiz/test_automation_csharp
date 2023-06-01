@@ -49,8 +49,7 @@ namespace CSharpBasics
         {
             Console.WriteLine("Please enter string");
             string enteredString = Console.ReadLine();
-            int length = enteredString.Length - 1;
-            string modification_1 = enteredString.Substring(2, length - 1);
+            string modification_1 = enteredString.Substring(2);
             Console.WriteLine(modification_1);// Output a string from the 3rd character for clarity and verification of the result
             string modification_2 = enteredString.Substring(0, 2);
             Console.WriteLine(modification_2);// Output a string the 3rd character for clarity and verification of the result
