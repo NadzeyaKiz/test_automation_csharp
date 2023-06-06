@@ -22,14 +22,11 @@ namespace CSharpBasics_2
             
             Console.WriteLine("Please enter a byte");
             byte variable_4 = Convert.ToByte(Console.ReadLine());
-            
-            Console.WriteLine($@"Entered integer is {variable_1}
-                                Entered double is {variable_2}
-                                Entered bool is {variable_3}
-                                Entered byte is {variable_4}");
+
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"Entered integer is {variable_1}\nEntered double is {variable_2}\nEntered bool is {variable_3}\nEntered byte is {variable_4}");
+            Console.WriteLine("--------------------");
         }
-
-
         public void Task_02() 
         {
             Console.WriteLine("Please enter an integer");
@@ -38,23 +35,29 @@ namespace CSharpBasics_2
             Console.WriteLine("Please enter a double");
             double variable_2 = double.Parse(Console.ReadLine());
 
-            Console.WriteLine($@"Entered integer is {variable_1}\nEntered double is {variable_2}");
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"Entered integer is {variable_1}\nEntered double is {variable_2}");
+            Console.WriteLine("--------------------");
 
         }
         public void Task_03() 
         {
             Console.WriteLine("Please enter an integer");
             string enteredNumber = Console.ReadLine();
+
+            Console.WriteLine("--------------------");
             
             int number;            
             if (int.TryParse(enteredNumber, out number))
             {
-                Console.WriteLine(number);
+                Console.WriteLine($"Parsed entered number is {number}");
             }
             else
             {
                 Console.WriteLine($"Failed to parse value '{enteredNumber}' to integer");
+
             }
+            Console.WriteLine("--------------------");
 
         }
         public void Task_04() 
@@ -62,12 +65,11 @@ namespace CSharpBasics_2
             int variable1 = 65;
             int variable2 = variable1 + 3;
             int variable3 = variable1 + variable2;
-            Console.WriteLine($@"Entered number is {variable1}
-The first variable increased by 3 is {variable2}
-The sum of the first two variablesvariables is {variable3}");
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"Entered number is {variable1}\nThe first variable increased by 3 is {variable2}\nThe sum of the first two variablesvariables is {variable3}");
+            Console.WriteLine("--------------------");
 
         }
-
         public void Task_05()
         {
             Console.WriteLine("Please enter 1st item name");
@@ -188,7 +190,10 @@ The sum of the first two variablesvariables is {variable3}");
             bool areNotEqual = a1 == b1;
             Console.WriteLine($@"The result of 'a == b' (were a1=10, b1=8) is {areNotEqual}");
 
-            
+
+            Console.WriteLine("---------------");
+
+
             bool and1 = true;
             bool and2 = true;
             bool and3 = true;
@@ -199,21 +204,66 @@ The sum of the first two variablesvariables is {variable3}");
             Console.WriteLine($@"The result of 'and1 && and5 == and3' (were and1=true, and2=true, and5 = false) is {and6}");
 
 
+            Console.WriteLine("---------------");
 
 
+            bool or1 = false;
+            bool or2 = true;
+            bool or3 = false;
+            bool or4 = false;
+            bool or5 = (or1 || or2) != or3;
+            bool or6 = (or1 || or4) != or3;
+            Console.WriteLine($@"The result of 'or5 = (or1 || or2) != or3' (were or1=false, or2=true, or3 = false) is {or5}");
+            Console.WriteLine($@"The result of 'or6 = (or1 || or4) != or3' (were or1=false, or3=false, or4 = false) is {or6}");
 
+
+            Console.WriteLine("---------------");
+
+
+            int notEqual1 = 32;
+            int notEqual2 = 30;
+            int notEqual3 = 32;
+            bool notEqual4 = notEqual1 != notEqual2;
+            bool notEqual5 = notEqual1 != notEqual3;
+            Console.WriteLine($@"The result of 'notEqual4 = notEqual1 != notEqual2' (were notEqual1 = 32, notEqual2 = 30) is {notEqual4}");
+            Console.WriteLine($@"The result of 'notEqual5 = notEqual1 != notEqual3' (were notEqual1 = 32, notEqual3 = 32) is {notEqual5}");
+
+
+            Console.WriteLine("---------------");
+
+
+            int comper1 = 4;
+            int comper2 = 4;
+            int comper3 = 2;
+            bool comper4 = comper1 <= comper2;
+            bool comper5 = comper1 <= comper3;
+            Console.WriteLine($@"The result of ' comper4 = comper1 <= comper2' (comper1 = 4, comper2 = 4) is {comper4}");
+            Console.WriteLine($@"The result of ' comper5 = comper1 <= comper3' (comper1 = 4, comper3 = 2) is {comper5}");
 
 
         }
         public void Task_08()
         {
+            //The operation of boxing an integer 'number' variable that is assigned to the object 'boxedNumber'.
+            int number = 123456789;
+            // The following line boxes a.
+            object boxedNumber = number;
+
+            //Then I unbox the object 'boxedNumber' and assign it to the integer variable unboxedNumber.
+            int unboxedNumber = (int)boxedNumber;  // unboxing
 
         }
         public void Task_09()
         {
+            //Implicit Conversion:
+            int number1 = 42;       // Declaring and assigning an int value
+            double number2 = number1; // Implicit conversion: int to double
 
+
+            //Explicit Conversion:
+            double number3 = 3.14;  // Declaring and assigning a double value
+            int number4 = (int)number3; // Explicit conversion: double to int
         }
-
 
     }
 }
