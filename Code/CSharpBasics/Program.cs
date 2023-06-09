@@ -3,8 +3,10 @@ using CSharpBasics;
 
 //Console.WriteLine("Tasks Execution!");
 
-//Console.WriteLine("Execution of task_01:");
-//var homework_1 = new Homework_1();
+Console.WriteLine("Execution of task_01:");
+var homework_1 = new Homework_1();
+
+
 //homework_1.Task_01();
 //Console.WriteLine("Execution of task_01 is finished");
 
@@ -18,9 +20,9 @@ using CSharpBasics;
 //Console.WriteLine("Execution of task_03 is finished");
 
 
-//Console.WriteLine("Execution of task_04:");
-//homework_1.Task_04();
-//Console.WriteLine("Execution of task_o4 is finished");
+Console.WriteLine("Execution of task_04:");
+homework_1.Task_04();
+Console.WriteLine("Execution of task_o4 is finished");
 
 
 //Console.WriteLine("Execution of task_05:");
@@ -35,11 +37,4 @@ using CSharpBasics;
 //homework_1.Task_07();
 //Console.WriteLine("Execution of task_07 is finished");
 
-string name = "John";
-int age = 30;
-
-string formattedString = $@"My name is {name} 
-and I am {age} years old.";
-
-Console.WriteLine(formattedString);
 
