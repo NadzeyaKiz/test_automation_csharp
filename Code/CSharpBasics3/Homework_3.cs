@@ -22,7 +22,6 @@ namespace CSharpBasics_3
             {
                 Console.WriteLine("The number is divisible by 2 and 5: 'Tutti-Frutti'");
             }
-
             else if (number % 2 == 0)
             {
                 Console.WriteLine($"The number {enteredNumber} is divisible by 2: 'Tutti'");
@@ -37,7 +36,6 @@ namespace CSharpBasics_3
             }
 
             Console.WriteLine("--------------------");
-
         }
         public void Task_02()
         {
@@ -54,7 +52,6 @@ namespace CSharpBasics_3
                 {
                     Console.WriteLine("'Tutti-Frutti'");
                 }
-
                 else if (current % 2 == 0)
                 {
                     Console.WriteLine("'Tutti'");
@@ -79,41 +76,22 @@ namespace CSharpBasics_3
             Console.WriteLine("Please enter the second number");
             var number2 = Convert.ToInt32(Console.ReadLine());
 
+            int max = Math.Max(number1, number2);
+            int min = Math.Min(number1, number2);
+
+            Console.WriteLine("--------------------");                              
+            MatchNumberWithPhrase(min, max);         
             Console.WriteLine("--------------------");
-
-            if (number1 > number2)
-            {
-                Console.WriteLine($"The first number {number1} is greater than the second number {number2}");
-                Task_03_1(number2, number1);
-
-            }
-            else if (number1 < number2)
-            {
-                Console.WriteLine($"The second number {number2} is geater than the first number {number1}");
-                Task_03_1(number1, number2);
-
-
-            }
-            else
-            {
-                Console.WriteLine($"The first number {number1} and the second number {number2} are equal");
-            }
-
-            Console.WriteLine("--------------------");
-
-
         }
 
-        private void Task_03_1(int number1, int number2)
+        private void MatchNumberWithPhrase(int minValue, int maxValue)
         {
-
-            for (int current = number1; current <= number2; current++)
+            for (int current = minValue; current <= maxValue; current++)
             {
                 if (current % 2 == 0 && current % 5 == 0)
                 {
                     Console.WriteLine("'Tutti-Frutti'");
                 }
-
                 else if (current % 2 == 0)
                 {
                     Console.WriteLine("'Tutti'");
