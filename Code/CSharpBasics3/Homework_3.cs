@@ -39,35 +39,16 @@ namespace CSharpBasics_3
         }
         public void Task_02()
         {
-            Console.WriteLine("Please enter smaller number 1");
+            Console.WriteLine("Please enter smaller number ");
             var smallerNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please enter bigger number 2");
+            Console.WriteLine("Please enter bigger number ");
             var biggerNumber = Convert.ToInt32(Console.ReadLine());
-
+                        
             Console.WriteLine("--------------------");
-
-            for (int current = smallerNumber; current <= biggerNumber; current++)
-            {
-                if (current % 2 == 0 && current % 5 == 0)
-                {
-                    Console.WriteLine("'Tutti-Frutti'");
-                }
-                else if (current % 2 == 0)
-                {
-                    Console.WriteLine("'Tutti'");
-                }
-                else if (current % 5 == 0)
-                {
-                    Console.WriteLine("'Frutti'");
-                }
-                else
-                {
-                    Console.WriteLine($"Number {current} can’t be divided on 2 or 5");
-                }
-            }
-
+            MatchNumberWithPhrase(smallerNumber, biggerNumber);
             Console.WriteLine("--------------------");
         }
+        
         public void Task_03()
         {
             Console.WriteLine("Please enter the first number");
