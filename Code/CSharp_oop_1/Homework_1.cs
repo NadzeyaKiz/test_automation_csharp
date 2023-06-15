@@ -11,7 +11,7 @@ namespace CSharp_oop_1
     {
         public double CalculateTotalAmount(double itemQuantity, double itemPrice, double enteredDiscount)
         {
-            double totalWithoutDiscount = itemQuantity * itemPrice;
+            double totalWithoutDiscount = Math.Round((itemQuantity * itemPrice), 2);
             double discountAmount = Math.Round((totalWithoutDiscount*enteredDiscount/100), 2);
             double TotalAmount = totalWithoutDiscount - discountAmount;
             return TotalAmount;           
@@ -20,9 +20,8 @@ namespace CSharp_oop_1
         {
             double receiptTotal = 0;
             for (int i = 0; i < toPayForItems.Length; i++)
-                receiptTotal += toPayForItems[i];   
-            
-            return receiptTotal;
+                receiptTotal += toPayForItems[i];               
+            return Math.Round((receiptTotal), 2);
         }
 
         public void PrintReceipt(string[] itemNames, double[] itemPricies, double[] itemQuantities, double[] toPayForItems)
@@ -37,6 +36,25 @@ namespace CSharp_oop_1
 
             Console.WriteLine($@"The amount to pay is {receiptTotal}");
             Console.WriteLine($"---------------------------------------------------");
+        }
+
+        public double CalculatePerimeter(params double[] sides)
+        {
+            double perimeter = 0;
+            foreach (double side in sides)
+            {
+                perimeter += side;
+            }
+            return perimeter;
+        }
+        public double CalculateArea(double baseLength, double height)
+        {
+            return 0.5 * baseLength * height;
+        }
+
+        public double CalculateArea(double radius)
+        {
+            return Math.PI * Math.Pow(radius, 2);
         }
     }
 }
