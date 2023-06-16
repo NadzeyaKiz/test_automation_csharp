@@ -16,6 +16,16 @@ namespace CSharp_oop_1
             double TotalAmount = totalWithoutDiscount - discountAmount;
             return TotalAmount;           
         }
+
+        public double CalculateTotalAmountOptional(double itemQuantity, double itemPrice, double enteredDiscount = 0)
+        {
+            double totalWithoutDiscount = Math.Round((itemQuantity * itemPrice), 2);
+            double discountAmount = Math.Round((totalWithoutDiscount * enteredDiscount / 100), 2);
+            double TotalAmount = totalWithoutDiscount - discountAmount;
+            return TotalAmount;
+        }
+
+
         public double CalculeteTotalAmountForEachItemAndReceiptTotal(double[] toPayForItems)                    
         {
             double receiptTotal = 0;

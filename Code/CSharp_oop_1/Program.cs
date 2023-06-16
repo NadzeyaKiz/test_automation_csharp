@@ -4,7 +4,7 @@ using System.Transactions;
 Console.WriteLine("Tasks Execution!");
 var homework_1 = new Homework_1();
 
-# region Task 01
+#region Task 01
 //Console.WriteLine("Execution of task_01:");
 //
 //Console.WriteLine("Please enter the product quantity");
@@ -22,48 +22,58 @@ var homework_1 = new Homework_1();
 #endregion
 
 #region Task 02 and 03
-//Console.WriteLine("Execution of task_02 and task_03:");
-//string questionAnswer;
-//int numberOfItems;
+Console.WriteLine("Execution of task_02 and task_03:");
+string questionAnswer;
+int numberOfItems;
 
-//Console.WriteLine($"Would you like to enter the number of items in your basket? (y/n)");
-//questionAnswer = Console.ReadLine();
+Console.WriteLine($"Would you like to enter the number of items in your basket? (y/n)");
+questionAnswer = Console.ReadLine();
 
-//if (questionAnswer.ToLower() == "y")       //Required parameter (number of items) provided
-//{
-//    Console.WriteLine("Please enter how many items do you have in your basket:");
-//    numberOfItems = Convert.ToInt32(Console.ReadLine());
-//}
-//else                                      // Optional parameter (number of items) provided
-//{
-//    Console.WriteLine("Defolt number of items in your basket is 3");
-//    numberOfItems = 3;
-//}
+if (questionAnswer.ToLower() == "y")       //Required parameter (number of items) provided
+{
+    Console.WriteLine("Please enter how many items do you have in your basket:");
+    numberOfItems = Convert.ToInt32(Console.ReadLine());
+}
+else                                      // Optional parameter (number of items) provided
+{
+    Console.WriteLine("Defolt number of items in your basket is 3");
+    numberOfItems = 3;
+}
 
-//string[] itemNames = new string[numberOfItems];
-//double[] itemPricies = new double[numberOfItems];
-//double[] itemQuantities = new double[numberOfItems];
+string[] itemNames = new string[numberOfItems];
+double[] itemPricies = new double[numberOfItems];
+double[] itemQuantities = new double[numberOfItems];
 
-//for (int i = 0; i < numberOfItems; i++)
-//{
-//    Console.WriteLine($"Please enter {i} item name");
-//    itemNames[i] = Console.ReadLine();
-//    Console.WriteLine($"Please enter {i} item price");
-//    itemPricies[i] = Convert.ToDouble(Console.ReadLine());
-//    Console.WriteLine($"Please enter {i} item number of items");
-//    itemQuantities[i] = Convert.ToDouble(Console.ReadLine());
-//}
+for (int i = 0; i < numberOfItems; i++)
+{
+    Console.WriteLine($"Please enter {i} item name");
+    itemNames[i] = Console.ReadLine();
+    Console.WriteLine($"Please enter {i} item price");
+    itemPricies[i] = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine($"Please enter {i} item number of items");
+    itemQuantities[i] = Convert.ToDouble(Console.ReadLine());
+}
 
-//Console.WriteLine("Please enter the discount:");
-//double enteredDiscount = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Please enter the discount:");
+string enteredDiscountEmpty = Console.ReadLine();
+double[] toPayForItems = new double[numberOfItems];
 
-//double[] toPayForItems = new double[numberOfItems];
-//for (int i = 0; i < numberOfItems; i++)
-//{
-//    toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmount(itemQuantities[i], itemPricies[i], enteredDiscount), 2);
-//}
-
-//homework_1.PrintReceipt(itemNames, itemPricies, itemQuantities, toPayForItems);
+if (string.IsNullOrEmpty(enteredDiscountEmpty))
+{
+for (int i = 0;i < numberOfItems;i++)
+    {
+        toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmountOptional(itemQuantities[i], itemPricies[i]), 2);
+    }
+}
+else
+{
+    for (int i = 0;i<numberOfItems;i++) 
+    {
+        double enteredDiscount = Convert.ToDouble(enteredDiscountEmpty);
+        toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmount(itemQuantities[i], itemPricies[i], enteredDiscount), 2);
+    }  
+}
+homework_1.PrintReceipt(itemNames, itemPricies, itemQuantities, toPayForItems);
 #endregion
 
 #region Task 04
