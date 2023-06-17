@@ -66,5 +66,11 @@ namespace CSharp_oop_1
         {
             return Math.PI * Math.Pow(radius, 2);
         }
+
+        public double CalculateGravityForce(double mass, double acceleration = 9.8)
+            {
+            double gravityForce = Math.Round((mass * acceleration),2);
+                return gravityForce;
+            }
     }
 }

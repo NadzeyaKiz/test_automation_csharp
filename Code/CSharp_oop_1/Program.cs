@@ -1,4 +1,5 @@
 ﻿using CSharp_oop_1;
+using System.Diagnostics.Metrics;
 using System.Transactions;
 
 Console.WriteLine("Tasks Execution!");
@@ -22,58 +23,58 @@ var homework_1 = new Homework_1();
 #endregion
 
 #region Task 02 and 03
-Console.WriteLine("Execution of task_02 and task_03:");
-string questionAnswer;
-int numberOfItems;
+//Console.WriteLine("Execution of task_02 and task_03:");
+//string questionAnswer;
+//int numberOfItems;
 
-Console.WriteLine($"Would you like to enter the number of items in your basket? (y/n)");
-questionAnswer = Console.ReadLine();
+//Console.WriteLine($"Would you like to enter the number of items in your basket? (y/n)");
+//questionAnswer = Console.ReadLine();
 
-if (questionAnswer.ToLower() == "y")       //Required parameter (number of items) provided
-{
-    Console.WriteLine("Please enter how many items do you have in your basket:");
-    numberOfItems = Convert.ToInt32(Console.ReadLine());
-}
-else                                      // Optional parameter (number of items) provided
-{
-    Console.WriteLine("Defolt number of items in your basket is 3");
-    numberOfItems = 3;
-}
+//if (questionAnswer.ToLower() == "y")       //Required parameter (number of items) provided
+//{
+//    Console.WriteLine("Please enter how many items do you have in your basket:");
+//    numberOfItems = Convert.ToInt32(Console.ReadLine());
+//}
+//else                                      // Optional parameter (number of items) provided
+//{
+//    Console.WriteLine("Defolt number of items in your basket is 3");
+//    numberOfItems = 3;
+//}
 
-string[] itemNames = new string[numberOfItems];
-double[] itemPricies = new double[numberOfItems];
-double[] itemQuantities = new double[numberOfItems];
+//string[] itemNames = new string[numberOfItems];
+//double[] itemPricies = new double[numberOfItems];
+//double[] itemQuantities = new double[numberOfItems];
 
-for (int i = 0; i < numberOfItems; i++)
-{
-    Console.WriteLine($"Please enter {i} item name");
-    itemNames[i] = Console.ReadLine();
-    Console.WriteLine($"Please enter {i} item price");
-    itemPricies[i] = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine($"Please enter {i} item number of items");
-    itemQuantities[i] = Convert.ToDouble(Console.ReadLine());
-}
+//for (int i = 0; i < numberOfItems; i++)
+//{
+//    Console.WriteLine($"Please enter {i} item name");
+//    itemNames[i] = Console.ReadLine();
+//    Console.WriteLine($"Please enter {i} item price");
+//    itemPricies[i] = Convert.ToDouble(Console.ReadLine());
+//    Console.WriteLine($"Please enter {i} item number of items");
+//    itemQuantities[i] = Convert.ToDouble(Console.ReadLine());
+//}
 
-Console.WriteLine("Please enter the discount:");
-string enteredDiscountEmpty = Console.ReadLine();
-double[] toPayForItems = new double[numberOfItems];
+//Console.WriteLine("Please enter the discount:");
+//string enteredDiscountEmpty = Console.ReadLine();
+//double[] toPayForItems = new double[numberOfItems];
 
-if (string.IsNullOrEmpty(enteredDiscountEmpty))
-{
-for (int i = 0;i < numberOfItems;i++)
-    {
-        toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmountOptional(itemQuantities[i], itemPricies[i]), 2);
-    }
-}
-else
-{
-    for (int i = 0;i<numberOfItems;i++) 
-    {
-        double enteredDiscount = Convert.ToDouble(enteredDiscountEmpty);
-        toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmount(itemQuantities[i], itemPricies[i], enteredDiscount), 2);
-    }  
-}
-homework_1.PrintReceipt(itemNames, itemPricies, itemQuantities, toPayForItems);
+//if (string.IsNullOrEmpty(enteredDiscountEmpty))
+//{
+//    for (int i = 0; i < numberOfItems; i++)
+//    {
+//        toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmountOptional(itemQuantities[i], itemPricies[i]), 2);
+//    }
+//}
+//else
+//{
+//    for (int i = 0; i < numberOfItems; i++)
+//    {
+//        double enteredDiscount = Convert.ToDouble(enteredDiscountEmpty);
+//        toPayForItems[i] = Math.Round(homework_1.CalculateTotalAmount(itemQuantities[i], itemPricies[i], enteredDiscount), 2);
+//    }
+//}
+//homework_1.PrintReceipt(itemNames, itemPricies, itemQuantities, toPayForItems);
 #endregion
 
 #region Task 04
@@ -92,7 +93,7 @@ homework_1.PrintReceipt(itemNames, itemPricies, itemQuantities, toPayForItems);
 //    enteredSides[randomIndex] = temp;
 //}
 
-//Console.WriteLine("____________________________");    
+//Console.WriteLine("____________________________");
 //double trianglePerimeter = homework_1.CalculatePerimeter(enteredSides[0], enteredSides[1], enteredSides[2]);
 //Console.WriteLine($"The values {enteredSides[0]}, {enteredSides[1]}, {enteredSides[2]} where choosen for triange perimeter");
 //Console.WriteLine($"Triangle's perimeter: {trianglePerimeter}");
@@ -147,4 +148,29 @@ polymorphically through the Transport class, allowing you to start and stop them
 to interact with the transportation system without worrying about the specific implementation details of each mode of transport, promoting 
 code reusability and maintainability.
 */
+#endregion
+
+#region Extra Task
+Console.WriteLine("Please enter the mass of the object(kg)");
+double mass = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Please enter the name of the planet: Earth, Moon, Mars or Venus");
+string planetName = Console.ReadLine();
+
+Console.WriteLine($@"Please enter the Acceleration of gravity for planet {planetName} or defolt Earth acceleration will be used");
+string noAcceleration = Console.ReadLine();
+double gravityForce;
+
+if (string.IsNullOrEmpty(noAcceleration))
+{
+    gravityForce = homework_1.CalculateGravityForce(mass);
+    Console.WriteLine($"The gravity force for the planet {planetName} with defolt acceleration of 9.8 is {gravityForce}");
+}
+else
+{
+    double acceleration = Convert.ToDouble(noAcceleration);
+    gravityForce = homework_1.CalculateGravityForce(mass, acceleration);
+    Console.WriteLine($"The gravity force for the planet {planetName} with entered acceleration {acceleration} is {gravityForce}");
+}
+   
 #endregion
