@@ -2,21 +2,40 @@
 
 Flowers flowers = new Flowers();
 
-// Попытка записи значения в поле color
-flowers.color = "Red"; // Error Line: Field 'Flowers.color' is inaccessible due to its protection level
+#region Reading and writing values ​​to the fields(Task_2)
+double price = flowers.Price;
+string color = flowers.Color;//Error Line (The property or indexer 'Flowers.Color' cannot be used in this context because it lack the get accessor)
 
-// Попытка чтения значения из поля color
-string flowerColor = flowers.color; // Error Line: Field 'Flowers.color' is inaccessible due to its protection level
-Console.WriteLine("Flower color: " + flowerColor);
+flowers.Color = "Red";
+flowers.Price = 10.99;//Error Line (Property or index 'Flowers.Price' cannot be assigned to -- it is read only)
 
-// Запись значения в свойство Color
-flowers.Color = "Blue";
+Console.WriteLine($"Flower color: {flowers.Color}");//Error Line(The property or indexer 'Flowers.Color' cannot be used in this context because it lack the get accessor)
+Console.WriteLine($"Flower price: {flowers.Price}");
 
-// Попытка записи значения в свойство Price
-flowers.Price = 10.99; // Error Line: Property or indexer 'Flowers.Price' cannot be assigned to -- it is read only
+/* In this case, writing the value of the flowers.Color property is allowed, but attempting to read the value will cause a 
+ * compilation error because there is no get block.
+ * Attempt to write a value in the flowers.Price is forbidden, but reading the value is allowed.*/
+#endregion
 
-// Чтение значения из свойства Price
-double flowerPrice = flowers.Price;
+#region Calling a static field and adding a value to it(Task_04)
+Flowers.Type = "Plants";
+string kind = Flowers.Type;
+Console.WriteLine($"Kind of the flower is {kind}");
+#endregion
 
+#region Calling all static methods (Task_07)
+string randomColor = Helper.GenerateRandomColor();
+Console.WriteLine($"Random Color: {randomColor}");
 
-Console.WriteLine("Flower price: " + flowerPrice);
+Helper.PrintFlowerInfo("Rose", "Red", 25.5);
+
+Console.WriteLine("Please enter the flower's price:");
+double flowerprice = Convert.ToDouble(Console.ReadLine());
+bool isExpensive = Helper.IsPriceExpensive(flowerprice);
+Console.WriteLine($"Is Price Expensive: {isExpensive}");
+
+Console.WriteLine("Please enter the name of the flower:");
+string lowerletter = Console.ReadLine();
+string capitalizedString = Helper.CapitalizeFirstLetter(lowerletter);
+Console.WriteLine($"Capitalized String: {capitalizedString}");
+#endregion
