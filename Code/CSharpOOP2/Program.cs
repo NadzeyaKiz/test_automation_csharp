@@ -64,6 +64,6 @@ Table table5 = new Table()
     Brand = "Test",
     IsAvailable = true
 };
-// Вывод значения поля Price
-Console.WriteLine($"Значение поля Price: {table5.Price}");
+// Displaying the value of the Price field
+Console.WriteLine($"The value of the Price field is: {table5.Price}");
 #endregion
