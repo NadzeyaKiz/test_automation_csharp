@@ -20,6 +20,7 @@ namespace CSharpOOP4
             _baseArea = baseArea;
             _height = height;
         }
+
         public override double CalculateShapeVolume()
         {
             return  Math.Round(_baseArea * _height / 3, 2);
@@ -28,7 +29,7 @@ namespace CSharpOOP4
         public override void DisplayShapeInfo()
         {
             base.DisplayShapeInfo();
-            Console.WriteLine($"The base area of the piramid = {_baseArea}");
+            Console.WriteLine($"The base area of the piramid is {_baseArea}");
             Console.WriteLine($"The height of the piramid is {_height}");
             Console.WriteLine("The formula for calculating the volume of the Piramid shape is (1/3)*base area * height");
         }
