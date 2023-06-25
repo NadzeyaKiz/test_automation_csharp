@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpOOP", "CSharp_oop_1\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpOOP2", "CSharpOOP2\CSharpOOP2.csproj", "{154C241A-4379-4B8C-8E01-DB524C22758D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpOOP4", "CSharpOOP4\CSharpOOP4.csproj", "{6FF51431-BC19-4A21-BE35-40565E551C01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{154C241A-4379-4B8C-8E01-DB524C22758D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154C241A-4379-4B8C-8E01-DB524C22758D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{154C241A-4379-4B8C-8E01-DB524C22758D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF51431-BC19-4A21-BE35-40565E551C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF51431-BC19-4A21-BE35-40565E551C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF51431-BC19-4A21-BE35-40565E551C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF51431-BC19-4A21-BE35-40565E551C01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
