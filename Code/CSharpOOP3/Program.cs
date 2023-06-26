@@ -1,6 +1,6 @@
 ﻿using CSharpOOP3;
 
-Flowers flowers = new Flowers();
+Flower flowers = new Flower();
 
 //#region Reading and writing values ​​to the fields(Task_2)
 //double price = flowers.Price;
@@ -24,18 +24,18 @@ Console.WriteLine($"Kind of the flower is {kind}");
 #endregion
 
 #region Calling all static methods (Task_07)
-string randomColor = Helper.GenerateRandomColor();
+string randomColor = FlowerHelper.GenerateRandomColor();
 Console.WriteLine($"Random Color: {randomColor}");
 
-Helper.PrintFlowerInfo("Rose", "Red", 25.5);
+FlowerHelper.PrintFlowerInfo("Rose", "Red", 25.5);
 
 Console.WriteLine("Please enter the flower's price:");
 double flowerprice = Convert.ToDouble(Console.ReadLine());
-bool isExpensive = Helper.IsPriceExpensive(flowerprice);
+bool isExpensive = FlowerHelper.IsPriceExpensive(flowerprice);
 Console.WriteLine($"Is Price Expensive: {isExpensive}");
 
 Console.WriteLine("Please enter the name of the flower:");
 string lowerletter = Console.ReadLine();
-string capitalizedString = Helper.CapitalizeFirstLetter(lowerletter);
+string capitalizedString = FlowerHelper.CapitalizeFirstLetter(lowerletter);
 Console.WriteLine($"Capitalized String: {capitalizedString}");
 #endregion

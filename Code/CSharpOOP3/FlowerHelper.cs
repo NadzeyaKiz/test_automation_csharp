@@ -1,6 +1,6 @@
 ﻿namespace CSharpOOP3
 {
-    public class Helper
+    public class FlowerHelper
     {
         //The GenerateRandomColor method generates a random color from a predefined list and returns it as a string
         public static string GenerateRandomColor()

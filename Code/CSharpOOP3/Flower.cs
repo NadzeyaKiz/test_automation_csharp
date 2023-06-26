@@ -2,9 +2,10 @@
 {
     public class Flower  //Task_01
     {
+        private string _color;
         public string Color //(setter-only property)
         {
-            set { Color = value; }
+            set { _color = value; }
         }
 
         private double _price;
