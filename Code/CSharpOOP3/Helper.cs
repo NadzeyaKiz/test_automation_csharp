@@ -15,7 +15,7 @@
             Console.WriteLine($"Flower Name is {name}");
             Console.WriteLine($"Flower Color is {color}");
             Console.WriteLine($"Flower Price is {price}");
-            Console.WriteLine($"Flower Kind is {Flowers.Type}");
+            Console.WriteLine($"Flower Kind is {Flower.Type}");
         }
         public static bool IsPriceExpensive(double price)
         {           
