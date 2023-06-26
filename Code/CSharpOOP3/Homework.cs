@@ -1,6 +1,6 @@
 ﻿namespace CSharpOOP3
 {
-    public class Flower  //Task_01
+    public class Flower1  //Task_01
     {
         public string color;
         public double price;
