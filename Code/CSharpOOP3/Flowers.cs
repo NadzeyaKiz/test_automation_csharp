@@ -7,7 +7,8 @@
             set { Color = value; }
         }
 
-        public double Price { get { return Price; } }  //(read-only property)
+        private double _price;
+        public double Price { get { return _price; } }  //(read-only property)
 
         public string Name//(Task_03)
         {
@@ -16,16 +17,10 @@
         }
         public static string Type { get; set; }
 
-        public static double CalculateTotalPrice(Flowers[] flowersArray)// (Task_5)
+        public static double CalculateBoqueyPrice(double price, int count)// (Task_5)
         {
-            double totalPrice = 0;
-
-            foreach (Flowers flower in flowersArray)
-            {
-                totalPrice += flower.Price;
-            }
-
-            return totalPrice;
+            double boqueyPrice = price * count;
+            return boqueyPrice;
         }
 
 
