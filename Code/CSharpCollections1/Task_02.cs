@@ -8,19 +8,16 @@ namespace CSharpCollections1
 {
     internal class Task_02
     {
-        public static double Main()
+        public double CountDifference(double[] array, out double minNumber, out double maxNumber)
         {
-            double[] array = { 2.5, 1.0, 4.3, 3.2, 5.7 };
-
-            double minNumber = FindMinNumber(array);
-            double maxNumber = FindMaxNumber(array);
-
+            minNumber = FindMinNumber(array);
+            maxNumber = FindMaxNumber(array);
             double difference = maxNumber - minNumber;
 
-            return difference;           
+            return difference;
         }
 
-        static double FindMinNumber(double[] array)
+        public double FindMinNumber(double[] array)
         {
             double minNumber = array[0];
             for (int i = 1; i < array.Length; i++)
@@ -31,7 +28,7 @@ namespace CSharpCollections1
 
             return minNumber;
         }
-        static double FindMaxNumber(double[] array)
+        public double FindMaxNumber(double[] array)
         {
             double maxNumber = array[0];
             for (int i = 1; i < array.Length; i++)

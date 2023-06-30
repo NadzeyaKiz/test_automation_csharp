@@ -1,45 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace CSharpCollections1
 {
     public class Task_03
     {
-        static void Main()
+        public void SortSurnames(List<string>surnames)
         {
-            List<string> surnames = ReadSurnamesFromConsole();
-
-            surnames.Sort();
-
-            Console.WriteLine("Sorted list of last names:");
-            PrintSurnames(surnames);
+            surnames.Sort();            
         }
 
-        static List<string> ReadSurnamesFromConsole()
+        public List<string> ParseSurnames(string input)
         {
+            string[] stringSurnames = input.Split(';');
             List<string> surnames = new List<string>();
 
-            Console.WriteLine("Enter surnames (enter an empty string to complete the entry):");
-            while (true)
+            surnames = surnames.ToList();
+            for (int i = 0; i < surnames.Count; i++)
             {
-                string input = Console.ReadLine().Trim();
-                if (string.IsNullOrEmpty(input))
-                    break;
-
                 surnames.Add(input);
             }
             return surnames;
         }
 
-        public static void PrintSurnames(List<string> surnames)
+public void PrintSurnames(List<string> surnames)
         {
             foreach (string surname in surnames)
             {
                 Console.WriteLine(surname);
             }
         }
-
     }
 }
