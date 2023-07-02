@@ -4,7 +4,7 @@ using System;
 Console.WriteLine("Tasks Execution!");
 Homework homework = new Homework();
 
-Console.WriteLine("Execution of task_01:" );
+Console.WriteLine("Execution of task_01:");
 Console.WriteLine("---------------------");
 homework.Task_01();
 Console.WriteLine("---------------------");
@@ -62,16 +62,18 @@ Console.WriteLine("---------------------");
 Console.WriteLine("End of execution of task_08");
 Console.WriteLine();
 
+Cat cat = new Cat();
+
 Console.WriteLine("Execution of task_09:");
 Console.WriteLine("---------------------");
-homework.Task_09();
+cat.Task_09();
 Console.WriteLine("---------------------");
 Console.WriteLine("End of execution of task_09");
 Console.WriteLine();
 
 Console.WriteLine("Execution of task_10:");
 Console.WriteLine("---------------------");
-homework.Task_10();
+cat.Task_10();
 Console.WriteLine("---------------------");
 Console.WriteLine("End of execution of task_10");
 Console.WriteLine();
