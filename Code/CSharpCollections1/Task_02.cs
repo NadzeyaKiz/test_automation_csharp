@@ -28,6 +28,7 @@ namespace CSharpCollections1
 
             return minNumber;
         }
+
         public double FindMaxNumber(double[] array)
         {
             double maxNumber = array[0];
