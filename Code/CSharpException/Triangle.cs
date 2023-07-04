@@ -23,6 +23,7 @@ namespace CSharpException
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;
+
         }
         public double SideA { get; private set; }
         public double SideB { get; private set; }
