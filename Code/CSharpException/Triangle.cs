@@ -11,15 +11,9 @@ namespace CSharpException
     {
         public Triangle(double sideA, double sideB, double sideC) 
         {
-            if (!ValidateSidesNotNull(sideA, sideB, sideC))
-            {
-                throw new ArgumentException("Side value cannot be equal to or less than zero");
-            }
-            if (!ValidateSidesSummOfSides(sideA, sideB, sideC))
-            {
-                throw new ArgumentException("The sum of two sides must be greater than the third side. Please enter a valid values of the triangle sides.");
-            }
-
+            ValidateSidesNotNull(sideA, sideB, sideC);
+            ValidateSidesSummOfSides(sideA, sideB, sideC);
+                
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;
@@ -36,24 +30,20 @@ namespace CSharpException
             Console.WriteLine($"The sideC of the triangle is: {SideC}");
         }
 
-        public bool ValidateSidesNotNull (double sideA, double sideB, double sideC)
+        public void ValidateSidesNotNull (double sideA, double sideB, double sideC)
         {
             if (sideA <= 0 || sideB <= 0 || sideC <= 0)
             {
-                return false;
+                throw new ArgumentException("Side value cannot be equal to or less than zero");
             }
-
-            return true;
         }
 
-        public bool ValidateSidesSummOfSides(double sideA, double sideB, double sideC)
+        public void ValidateSidesSummOfSides(double sideA, double sideB, double sideC)
         {
             if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA)
             {
-                return false;
+                throw new ArgumentException("The sum of two sides must be greater than the third side. Please enter valid values for the triangle sides.");
             }
-
-            return true;
         }
     }
 }
