@@ -5,7 +5,11 @@
         public void Task_01()
         {
             List<int> numbers = new List<int> { 27, 14, 8, 43, 19, 56, 32, 9, 65, 21 };
-            var divisibleByThree = numbers.Where(number => number % 3 == 0).ToList();
+            var divisibleByThree = (
+                from number in numbers
+                where number % 3 == 0
+                select number
+             ).ToList();
             Console.WriteLine($"The numbers from the list: [{string.Join(", ", numbers)}]\nthat are divisible by 3 are:  [{string.Join(", ", divisibleByThree)}].");
         }
         public void Task_02()
@@ -16,8 +20,14 @@
         }
         public void Task_03()
         {
-            List<string> fruts = new List<string> { "apple", "orange", "pear", "banana", "peach" };
-            var filteredAndSortedfruts = fruts.Where(frut => frut.Length % 2 == 0).OrderBy(frut => frut).ToList();
+           var fruts = new List<string> { "apple", "orange", "pear", "banana", "peach" };
+            var filteredAndSortedfruts = (
+                from frut in fruts
+                where frut.Length % 2 == 0
+                orderby frut
+                select frut
+            ).ToList();
+            
             Console.WriteLine($"The filtered and sorted fruts from the list: [{string.Join(", ", fruts)}]\nare: [{string.Join(", ", filteredAndSortedfruts)}].");
         }
         public void Task_04()

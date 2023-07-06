@@ -34,13 +34,14 @@ namespace CSharpLINQ
                 new Cat { Color = "white" },
                 new Cat { Color = "yellow" }
             };
-            List<Cat> matchedCats = cats.Where(cat => originalColors.Contains(cat.Color))
-                .Select(cat => new Cat { Color = cat.Color }).ToList();
 
-            Console.WriteLine("Matched Cats:");
-            foreach (var cat in matchedCats)
+            List<string> matchedColors = cats.Where(cat => originalColors.Contains(cat.Color))
+                .Select(cat => cat.Color ).ToList();
+
+            Console.WriteLine("Matched Colors:");
+            foreach (var color in matchedColors)
             {
-                Console.WriteLine("Color: " + cat.Color);
+                Console.WriteLine("Color: " + color);
             }
         }
     }    
