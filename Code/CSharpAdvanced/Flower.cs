@@ -10,6 +10,10 @@ namespace CSharpAdvanced
     {
         public string Name { get; set; }
         public string Color { get; set; }
-        public double Price { get; set; }     
+        public double Price { get; set; }
+        public override string ToString()
+        {
+           return string.Format($"Flower: {Name} - Color: {Color} - Price: {Price}");
+        }
     }
 }

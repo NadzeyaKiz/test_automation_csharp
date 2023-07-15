@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpAdvanced
 {
-    public class GenericMethod
+    public class Task01
     {
         public T GetFirstElement<T>(List<T> list)
         {

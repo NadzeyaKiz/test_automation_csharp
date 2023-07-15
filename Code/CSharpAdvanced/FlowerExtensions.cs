@@ -22,16 +22,16 @@ namespace CSharpAdvanced
             Console.WriteLine($"Flower Price is {flower.Price}");
             Console.WriteLine($"Flower Kind is {flower.GetType().Name}");
         }
-        public static bool IsPriceExpensive(this double price)
+        public static bool IsPriceExpensive(this Flower flower)
         {
-            return price > 50;
+            return flower.Price > 50;
         }
-        public static string CapitalizeFirstLetterFlower(this string input)
+        public static string CapitalizeFirstLetterFlower(this Flower flower)
         {
-            if (string.IsNullOrEmpty(input))
-                return input;
+            if (string.IsNullOrEmpty(flower.Name))
+                return flower.Name;
 
-            return char.ToUpper(input[0]) + input.Substring(1);
+            return char.ToUpper(flower.Name[0]) + flower.Name.Substring(1);
         }
         public static bool IsColorValid(this Flower flower)
         {
