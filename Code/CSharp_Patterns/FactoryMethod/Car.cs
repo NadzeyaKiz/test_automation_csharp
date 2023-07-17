@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharp_Patterns.FactoryMethod
-{// The Car class is responsible for creating and representing the unicycle.
+{// The Car class "representing the car.
  // Is a Concrete Product in the Factory Method pattern.
     internal class Car : IVehicle
     {
