@@ -15,7 +15,7 @@ namespace CSharpAdvanced
                 throw new ArgumentException("The list is empty.");
             }
 
-            return list[0];        
+            return list.FirstOrDefault();        
         }
     }
 }

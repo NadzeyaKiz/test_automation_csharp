@@ -10,9 +10,14 @@ namespace CSharpAdvanced
     {
         public Rose()
         {
-            Name = "Rose";
-            Color = "Red";
-            Price = 1.5;
+            Name = DefaultName;
+            Color = DefaultColor;
+            Price = DefaultPrice;
         }
+
+        public const string DefaultName = "Rose";
+        public const string DefaultColor = "Red";
+        public const double DefaultPrice = 1.5;
+
     }
 }
