@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpException", "CSharpEx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpLINQ", "CSharpLINQ\CSharpLINQ.csproj", "{0A044DA7-054D-4E14-99FB-B05F8772D61B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Patterns", "CSharp_Patterns\CSharp_Patterns.csproj", "{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpAdvanced", "CSharpAdvanced\CSharpAdvanced.csproj", "{D8BBE15E-24ED-43A8-83B8-A78A88B08C6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp_Patterns", "CSharp_Patterns\CSharp_Patterns.csproj", "{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{0A044DA7-054D-4E14-99FB-B05F8772D61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A044DA7-054D-4E14-99FB-B05F8772D61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A044DA7-054D-4E14-99FB-B05F8772D61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8BBE15E-24ED-43A8-83B8-A78A88B08C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8BBE15E-24ED-43A8-83B8-A78A88B08C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8BBE15E-24ED-43A8-83B8-A78A88B08C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8BBE15E-24ED-43A8-83B8-A78A88B08C6D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
