@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpAdvanced", "CSharpAdv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp_Patterns", "CSharp_Patterns\CSharp_Patterns.csproj", "{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumBasics", "SeleniumBasics\SeleniumBasics.csproj", "{D0F96B6B-A908-477A-87EF-A5641867FC58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F96B6B-A908-477A-87EF-A5641867FC58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F96B6B-A908-477A-87EF-A5641867FC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F96B6B-A908-477A-87EF-A5641867FC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F96B6B-A908-477A-87EF-A5641867FC58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
