@@ -1,5 +1,4 @@
 using CSharpCalculator;
-using CSharpCalculator;
 
 namespace TestProject1
 {
@@ -14,67 +13,67 @@ namespace TestProject1
         }
 
         [Test]
-        [TestCase(2, 3, 5, "Sum of positive and positive")]
-        [TestCase(0, 0, 0, "Sum of zero and zero")]
-        [TestCase(0, 5, 5, "Sum of zero and positive")]
-        [TestCase(6, 0, 6, "Sum of positive and zero")]
-        [TestCase(-5, 5, 0, "Sum of negative and positive")]
-        [TestCase(5, -5, 0, "Sum of positive and negative")]
-        [TestCase(-5, -5, -10, "Sum of negative and negative")]
-        public void AddReturnsCorrectSumTest(double a, double b, double expectedSum, string testcaseDescription)
+        [TestCase(2, 3, 5)]
+        [TestCase(0, 0, 0)]
+        [TestCase(0, 5, 5)]
+        [TestCase(6, 0, 6)]
+        [TestCase(-5, 5, 0)]
+        [TestCase(5, -5, 0)]
+        [TestCase(-5, -5, -10)]
+        public void AddReturnsCorrectSumTest(double a, double b, double expectedSum)
         {
             // Precondition: numbers a and b to add, expected sum expectedSum
             // Verify: Assert that the Add method returns the correct amount for various inputs
             double actualResult = calculator.Add(a, b);
-            Assert.AreEqual(expectedSum, actualResult, testcaseDescription);
+            Assert.AreEqual(expectedSum, actualResult, $"Incorrect sum result of {a} and {b}");
         }
 
         [Test]
-        [TestCase(5, 2, 3, "Positive minus positive")]
-        [TestCase(0, 0, 0, "Zero minus zero")]
-        [TestCase(0, 5, -5, "Zero minus positive")]
-        [TestCase(6, 0, 6, "Positive minus zero")]
-        [TestCase(0, -5, 5, "Zero minus negative")]
-        [TestCase(-10, 5, -15, "Negative minus positive")]
-        [TestCase(10, -5, 15, "Positive minus negative")]
-        [TestCase(-10, -5, -5, "Negative minus negative")]
-        public void SubtractReturnCorrectDifferenceTest(double a, double b, double expectedSubstract, string testcaseDescription)
+        [TestCase(5, 2, 3)]
+        [TestCase(0, 0, 0)]
+        [TestCase(0, 5, -5)]
+        [TestCase(6, 0, 6)]
+        [TestCase(0, -5, 5)]
+        [TestCase(-10, 5, -15)]
+        [TestCase(10, -5, 15)]
+        [TestCase(-10, -5, -5)]
+        public void SubtractReturnCorrectDifferenceTest(double a, double b, double expectedSubstract)
         {
             // Precondition: numbers a and b to subtract, expectedDifference
             // Verify: Assert that the Subtract method returns the correct difference for various inputs
             double actualResult = calculator.Sub(a, b);
-            Assert.AreEqual((double)expectedSubstract, actualResult, testcaseDescription);
+            Assert.AreEqual((double)expectedSubstract, actualResult, $"Incorrect difference of numbers {a} and {b}" );
         }
 
         [Test]
-        [TestCase(3, 4, 12, "Positive multiply positive")]
-        [TestCase(0, 0, 0, "Zero multiply zero")]
-        [TestCase(5, 0, 0, "Positive multiply zero")]
-        [TestCase(0, 5, 0, "Zero multiply positive")]
-        [TestCase(-2, 3, -6, "Negative multiply positive")]
-        [TestCase(-2, -3, 6, "Negative multiply negative")]
-        [TestCase(5, -2, -10, "Positive multiply negative")]
-        public void MultiplyReturnCorrectProductTest(double a, double b, double expectedProduct, string testcaseDescription)
+        [TestCase(3, 4, 12)]
+        [TestCase(0, 0, 0)]
+        [TestCase(5, 0, 0)]
+        [TestCase(0, 5, 0)]
+        [TestCase(-2, 3, -6)]
+        [TestCase(-2, -3, 6)]
+        [TestCase(5, -2, -10)]
+        public void MultiplyReturnCorrectProductTest(double a, double b, double expectedProduct)
         {
             // Precondition: numbers a and b to be multiplied, expected product expectedProduct
             // Verify: Assert that the Multiply method returns the correct product for different inputs
             double actualResult = calculator.Multiply(a, b);
-            Assert.AreEqual((double)expectedProduct, actualResult, testcaseDescription);
+            Assert.AreEqual((double)expectedProduct, actualResult, $"Incorrect product of numbers {a} and {b}");
         }
 
         [Test]
-        [TestCase(20, 4, 5, "Positive divide by positive")]
-        [TestCase(0, -7, 0, "Zero divide by negative")]
-        [TestCase(0, 5, 0, "Zero divide by positive")]
-        [TestCase(-10, -2, 5, "Negative divide by negative")]
-        [TestCase(-16, 4, -4, "Negative divide by positive")]
-        [TestCase(16, -4, -4, "Positive divide by negative")]
-        public void DivideReturnCorrectQuotient(double a, double b, double expectedQuotient, string testcaseDescription)
+        [TestCase(20, 4, 5)]
+        [TestCase(0, -7, 0)]
+        [TestCase(0, 5, 0)]
+        [TestCase(-10, -2, 5)]
+        [TestCase(-16, 4, -4)]
+        [TestCase(16, -4, -4)]
+        public void DivideReturnCorrectQuotient(double a, double b, double expectedQuotient)
         {
             // Precondition: numbers a and b to divide, expected quotient expectedQuotient
             // Verify: Assert that the Divide method returns the correct quotient for various inputs
             double actualResult = calculator.Divide(a, b);
-            Assert.AreEqual((double)expectedQuotient, actualResult, testcaseDescription);
+            Assert.AreEqual((double)expectedQuotient, actualResult, $"Incorrect quotient of numbers {a} and {b}");
         }
 
         [Test]
