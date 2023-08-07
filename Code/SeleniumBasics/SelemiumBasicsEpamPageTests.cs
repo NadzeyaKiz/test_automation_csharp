@@ -21,7 +21,7 @@ namespace SeleniumBasics
         {            
             _driver.Navigate().GoToUrl(_epamUrl);            
             var actualUrl = _driver.Url;
-            Assert.AreEqual(_epamUrl, actualUrl);
+            Assert.AreEqual(_epamUrl, actualUrl, "Incorrect EPAM main page Url!");
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace SeleniumBasics
             _driver.Navigate().Back();
             var actualUrl = _driver.Url;
 
-            Assert.AreEqual(howWeDoItUrl, actualUrl);
+            Assert.AreEqual(howWeDoItUrl, actualUrl, "Incorrect 'How we do it' page Url!");
         }
 
         [TearDown]
