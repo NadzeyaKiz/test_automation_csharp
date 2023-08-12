@@ -3,13 +3,10 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.ObjectModel;
-using System;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 
 namespace Selenium_Advanced
 {
-    public class Tests
+    public class SeleniumAdvancedEpamTests
     {
         private IWebDriver _driver { get; set; }
         private const string _epamUrl = "https://www.epam.com/";
@@ -63,10 +60,13 @@ namespace Selenium_Advanced
             Assert.That(_driver.Url, Is.EqualTo(expectedJobListingsUrl), "Incorrect URL");
         }
         [Test]
-        public void Test2()
+        public void LanguagesDroudownListOfLanguadesTest()
         {
             var languagesDropdown = _driver.FindElement(By.XPath("//button[@class='location-selector__button']"));
-            languagesDropdown.Click();
+            //languagesDropdown.Click();
+
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", languagesDropdown);
 
             // make sure that the language selection panel is displayed
             var langPanel = _driver.FindElement(By.XPath("//nav[@class='location-selector__panel']"));
@@ -84,18 +84,23 @@ namespace Selenium_Advanced
             }
         }
         [Test]
-        public void Test3()
+        public void NumberOfArticlesOnPageTest()
         {
             var searchIcon = _driver.FindElement(By.XPath("//span[contains(@class,'dark-iconheader-search__search-icon')]"));
             searchIcon.Click();
 
+            /*ensuring that the elements from the Search pannel are present before proceeding further. Once the elements are found, 
+             * they are stored in the listOfSearchElements variable, which can be used in further code.  */
             ReadOnlyCollection<IWebElement> listOfSearchElements = null;
             _wait.Until(driver =>
             {
                 listOfSearchElements = _driver.FindElements(By.XPath("//li[@class='frequent-searches__item']"));
                 return listOfSearchElements.Count > 0;
             });
-            
+
+            /*enerate a random index within the range of the list of search elements, checks if the element at that index is 
+             * displayed on the page, and clicks on it if it's displayed. This random selection and interaction with elements 
+             * continue until a displayed element is successfully clicked. */
             Random random = new Random();
             int randomIndex = random.Next(0, listOfSearchElements.Count);
             _wait.Until(driver =>
@@ -111,6 +116,8 @@ namespace Selenium_Advanced
             var findButton = _driver.FindElement(By.XPath("//*[@class='bth-text-layer']"));
             findButton.Click();
 
+            /*scrolling to ensure the last article is visible and checking for the presence of a "View More" link/button. 
+             * It continues waiting until the "View More" link/button is found.*/
             _wait.Until(driver =>
             {
                 var listOfArticles = _driver.FindElements(By.XPath("//article"));
