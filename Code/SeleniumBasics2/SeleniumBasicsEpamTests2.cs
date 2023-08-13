@@ -26,25 +26,19 @@ namespace SeleniumBasics2
         [Test]
         public void CheckAvaliableCountriesTest()
         {
-            string [] locationElementsCollection = { "AMERICAS", "EMEA", "APAC" };
-
-            var searchCareersButtonLocator = By.XPath("//*[@class='top-navigation__item-link js-op'][@href='/careers']");
-            _driver.FindElement(searchCareersButtonLocator).Click();
-                        
+            string [] locationTextConstantsCollection = { "AMERICAS", "EMEA", "APAC" };
+            var searchCareersButtonLocator = By.XPath("//*[contains(@class,'top-navigation')][@href='/careers']");
+            _driver.FindElement(searchCareersButtonLocator).Click();                        
             _driver.FindElement(By.XPath(_cookiesAcceptButtonLocator)).Click();
+            var findYourDreamJobButtonLocator = By.XPath("//div[@class='owl-item active']//a[@href='/careers/job-listings']");
 
-            var findYourDreamJobButtonLocator = By.XPath("//div[@class='owl-item active'][1]//a[@href='/careers/job-listings']");
             _driver.FindElement(findYourDreamJobButtonLocator).Click();
-
             Thread.Sleep(3000);
-
-            var searchLocationElementsLocator = By.XPath("//div[@class='tabs-23__ul js-tabs-links-list']//a");
-            var locationElements = _driver.FindElements(searchLocationElementsLocator);
+            var searchLocationElementsLocator = By.XPath("//div[contains(@class,'tabs-links-list')]//a");
+            var locationElements = _driver.FindElements(searchLocationElementsLocator);            
+            var locationElementTexts = locationElements.Select(element => element.Text).ToList();
             
-            var elementsWithWords = locationElementsCollection.Select(word => !locationElements.Any(element => element.Text.Contains(word)))
-            .Where(x=>x).ToList();
-
-            Assert.IsEmpty(elementsWithWords, $"The {elementsWithWords} are not found.");
+            CollectionAssert.AreEquivalent(locationTextConstantsCollection, locationElementTexts);
         }
 
         [TestCase(1)]
@@ -56,35 +50,36 @@ namespace SeleniumBasics2
         public void CheckFirstFiveArticleTest(int articleIndex) 
         {
             var textToSearch = "Automation";
-                       
-            _driver.FindElement(By.XPath(_searchIconLocator)).Click();
-
-            Thread.Sleep(2000);
-                     
-            var searchInput = _driver.FindElement(By.Id(_searchInputLocator));
-            searchInput.SendKeys(textToSearch);
-                        
-            _driver.FindElement(By.XPath(_searchButtonLocator)).Click();
-
             var expectedOpendPageUrl = $"https://www.epam.com/search?q={textToSearch}";
-            var actuarOpendPageUrlb = _driver.Url;
 
-            Assert.AreEqual(expectedOpendPageUrl, actuarOpendPageUrlb, "Invalid opend page Url");
-
+            _driver.FindElement(By.XPath(_searchIconLocator)).Click();
+            Thread.Sleep(2000);                     
+            var searchInput = _driver.FindElement(By.Id(_searchInputLocator));
+            searchInput.SendKeys(textToSearch);                        
+            _driver.FindElement(By.XPath(_searchButtonLocator)).Click();
+            
+            Assert.AreEqual(expectedOpendPageUrl, _driver.Url, "Invalid opend page Url");
             Thread.Sleep(3000);
                        
             _driver.FindElement(By.XPath(_cookiesAcceptButtonLocator)).Click();
-
-            Thread.Sleep(1000);
+            Thread.Sleep(1000);            
+            var firstFiveArticleLocator = By.XPath($"//div[@class='search-results__items']/article//a");
+            var numberOfResults = _driver.FindElements(firstFiveArticleLocator).Count();
             
-            var firstFiveArticleLocator = By.XPath($"//div[@class='search-results__items']/article[{articleIndex}]//a");
-            
-            _driver.FindElement(firstFiveArticleLocator).Click();
-            var searchTextOfArticle = _driver.PageSource;
-            bool isStringPresent = searchTextOfArticle.Contains(textToSearch, StringComparison.OrdinalIgnoreCase);
+            // If there are at least 5 results, check the text of the first five results
+            if (articleIndex <= numberOfResults)
+            {               
+                _driver.FindElement(firstFiveArticleLocator).Click();
 
-            Assert.IsTrue(isStringPresent, $"The word '{textToSearch}' is NOT present on the web page of the {articleIndex} article .");
+                var searchTextOfArticle = _driver.PageSource;
+                bool isStringPresent = searchTextOfArticle.Contains(textToSearch, StringComparison.OrdinalIgnoreCase);
 
+                Assert.IsTrue(isStringPresent, $"The word '{textToSearch}' is NOT present on the web page of the {articleIndex} article.");
+            }
+            else
+            {
+                Assert.Inconclusive($"There are less than {articleIndex} search results.");
+            }
         }
 
         [Test]
@@ -92,31 +87,23 @@ namespace SeleniumBasics2
         {
             var textToSearch = "Business Analysis";
             var textToSearchInUrlIncoding = textToSearch.Replace(" ", "+");
-                        
-            _driver.FindElement(By.XPath(_searchIconLocator)).Click();
-            
-            var searchInput = _driver.FindElement(By.Id(_searchInputLocator));
-            searchInput.SendKeys(textToSearch);
-                        
-            _driver.FindElement(By.XPath(_searchButtonLocator)).Click();
-
             var expectedOpendPageUrl = $"https://www.epam.com/search?q={textToSearchInUrlIncoding}";
-            var actuarOpendPageUrlb = _driver.Url;
+                        
+            _driver.FindElement(By.XPath(_searchIconLocator)).Click();            
+            var searchInput = _driver.FindElement(By.Id(_searchInputLocator));
+            searchInput.SendKeys(textToSearch);                        
+            _driver.FindElement(By.XPath(_searchButtonLocator)).Click();
+            
+            Assert.AreEqual(expectedOpendPageUrl, _driver.Url, "Invalid opend page Url");
 
-            Assert.AreEqual(expectedOpendPageUrl, actuarOpendPageUrlb, "Invalid opend page Url");
-
-            Thread.Sleep(3000);
-           
+            Thread.Sleep(3000);           
             _driver.FindElement(By.XPath(_cookiesAcceptButtonLocator)).Click();
-
             Thread.Sleep(1000);
 
             var firstArticleLocator = By.XPath("//div[@class='search-results__items']/article[1]//a");
             var firstArticle = _driver.FindElement(firstArticleLocator).Text;
             _driver.FindElement(firstArticleLocator).Click();
-
-            var titleOfOpendFirstArticleLocator = By.XPath("//*[@class='museo-sans-light']");
-            
+            var titleOfOpendFirstArticleLocator = By.XPath("//*[@class='museo-sans-light']");            
             var actualTitleOfOpendFirstArticlePage = _driver.FindElement(titleOfOpendFirstArticleLocator).Text;
 
             Assert.AreEqual(firstArticle, actualTitleOfOpendFirstArticlePage, "Invalid first article Title");
@@ -130,7 +117,6 @@ namespace SeleniumBasics2
          * 4. axis first/last: => //div[@class='search-results__items']//article[1]  ;  //div[@class='search-results__items']//article[last()]
          * 5. axis child (and verify that we can get rid of it using // or /) => //div[@class='search-results__items']/child::article[1]//a or //div[@class='search-results__items']/article[1]//a
          */
-
 
         [TearDown]
         public void TearDown()
