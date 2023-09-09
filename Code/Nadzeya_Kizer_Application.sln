@@ -27,11 +27,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpAdvanced", "CSharpAdv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp_Patterns", "CSharp_Patterns\CSharp_Patterns.csproj", "{0E7A8F92-54E4-4460-803B-5D5F68BB09CF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumBasics", "SeleniumBasics\SeleniumBasics.csproj", "{D0F96B6B-A908-477A-87EF-A5641867FC58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium_Advanced", "Selenium_Advanced\Selenium_Advanced.csproj", "{4E8A27DE-B19C-462E-BF1A-08B8FE03006F}"
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitCalcTests", "TestProject1\NUnitCalcTests.csproj", "{90AF5B05-0F52-4D3A-9976-D05E7B6DF620}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitCalcTests", "TestProject2\XUnitCalcTests.csproj", "{E85EFAF7-D6FC-4C46-B17A-0E1FA978EFEA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumBasics", "SeleniumBasics\SeleniumBasics.csproj", "{D0F96B6B-A908-477A-87EF-A5641867FC58}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumBasics2", "SeleniumBasics2\SeleniumBasics2.csproj", "{07A92D40-9384-4E05-9284-AB96DCB2493B}"
 EndProject
@@ -237,6 +238,10 @@ Global
 		{07A92D40-9384-4E05-9284-AB96DCB2493B}.Release|x64.Build.0 = Release|Any CPU
 		{07A92D40-9384-4E05-9284-AB96DCB2493B}.Release|x86.ActiveCfg = Release|Any CPU
 		{07A92D40-9384-4E05-9284-AB96DCB2493B}.Release|x86.Build.0 = Release|Any CPU
+		{4E8A27DE-B19C-462E-BF1A-08B8FE03006F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E8A27DE-B19C-462E-BF1A-08B8FE03006F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E8A27DE-B19C-462E-BF1A-08B8FE03006F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E8A27DE-B19C-462E-BF1A-08B8FE03006F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
