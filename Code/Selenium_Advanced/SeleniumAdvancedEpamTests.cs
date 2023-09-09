@@ -18,11 +18,17 @@ namespace Selenium_Advanced
         {
             _driver = new ChromeDriver();
             _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl(_epamUrl);
+            //_driver.Navigate().GoToUrl(_epamUrl);
             action = new Actions(_driver);
         }
 
         [SetUp, Order(2)]
+        public void AppMainPageSetUp()
+        {
+            _driver.Navigate().GoToUrl(_epamUrl);
+        }
+
+        [SetUp, Order(3)]
         public void SetUpWaiter()
         {
             _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
@@ -30,7 +36,7 @@ namespace Selenium_Advanced
             _wait.PollingInterval = TimeSpan.FromSeconds(0.5);
         }
 
-        [SetUp, Order(3)]
+        [SetUp, Order(4)]
         public void SetUpCookies()
         {
             // accept cookies
@@ -62,6 +68,9 @@ namespace Selenium_Advanced
         [Test]
         public void LanguagesDroudownListOfLanguadesTest()
         {
+            // check that the required languages are present
+            var languagesArray = new List<string> { "(English)", "(Русский)", "(Čeština)", "(Українська)", "(日本語)", "(中文)", "(Deutsch)", "(Polski)" };
+
             var languagesDropdown = _driver.FindElement(By.XPath("//button[@class='location-selector__button']"));
             //languagesDropdown.Click();
 
@@ -70,22 +79,21 @@ namespace Selenium_Advanced
 
             // make sure that the language selection panel is displayed
             var langPanel = _driver.FindElement(By.XPath("//nav[@class='location-selector__panel']"));
-            _wait.Until(driver => langPanel.Displayed);
-
-            // check that the required languages are present
-            var languagesArray = new List<string> { "(English)", "(Русский)", "(Čeština)", "(Українська)", "(日本語)", "(中文)", "(Deutsch)", "(Polski)" };
+            _wait.Until(driver => langPanel.Displayed);           
 
             var foundLanduages = _driver
                 .FindElements(By.XPath("//nav[@class='location-selector__panel']//a[contains(@class,'location-selector__link')]/span"))
                 .Select(x=> x.Text);
-            foreach (var language in languagesArray)
-            {
-                Assert.IsTrue(foundLanduages.Contains(language), $"Language '{language}' was not found in the list.");
-            }
+            
+            CollectionAssert.IsSubsetOf(languagesArray, foundLanduages,
+                $"The languagies ' is not found in the languages list '{foundLanduages}'");
         }
+
         [Test]
         public void NumberOfArticlesOnPageTest()
         {
+            int expectedNumberOfArticles = 20;
+
             var searchIcon = _driver.FindElement(By.XPath("//span[contains(@class,'dark-iconheader-search__search-icon')]"));
             searchIcon.Click();
 
@@ -132,7 +140,7 @@ namespace Selenium_Advanced
                 });
 
             var listOfArticles = _driver.FindElements(By.XPath("//article"));
-            Assert.That(listOfArticles.Count, Is.EqualTo(20));
+            Assert.That(listOfArticles.Count, Is.EqualTo(expectedNumberOfArticles));
         }
 
         [TearDown]
